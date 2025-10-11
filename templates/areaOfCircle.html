@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}Area Of Circle{% endblock %}
+
+{% block content %}
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 50px 20px;
+    }
+    .card {
+        background-color: gray;
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        max-width: 450px;
+        width: 100%;
+        text-align: center;
+        animation: fadeIn 0.8s ease;
+    }
+    .card h1 {
+        color: #3c4141;
+        margin-bottom: 10px;
+    }
+
+    .card .description {
+        color: #555;
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+    .form-box label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    .form-box input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+    .btn {
+        background-color: #494d4d;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background-color: #100f0f;
+        transform: translateY(-2px);
+    }
+    .result-box {
+        background-color: #dadcdb;
+        border: 1px solid #4d5351;
+        border-radius: 10px;
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    .result-box h2 {
+        margin-bottom: 8px;
+        color: #0e0d0f;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="container">
+    <div class="card">
+            <h1> Area of a Circle</h1>
+            <p class="description">
+                Enter the radius below to calculate the area of a circle using the formula:
+                <strong>A = π × r²</strong>
+            </p>
+
+            <form action="/works/areaOfCircle" method="post" class="form-box">
+                <label for="radius">Enter Radius:</label>
+                <input type="number" id="radius" name="radius" step="any" placeholder="Enter radius" required>
+
+                <input type="submit" value="Compute Area" class="btn">
+            </form>
+
+            {% if result %}
+            <div class="result-box">
+                <h2>Result</h2>
+                <p>The area of the circle is: <strong>{{ result }}</strong></p>
+            </div>
+            {% endif %}
+     </div>        
+</div>
+{% endblock %}

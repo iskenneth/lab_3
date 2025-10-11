@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}My Works{% endblock %}
+
+{% block content %}
+<style>
+  .works-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .work-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .work-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+
+  .work-card h2 {
+    color: #04AA6D;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .work-card p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+
+  .work-card a {
+    display: inline-block;
+    background-color: #04AA6D;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .work-card a:hover {
+    background-color: #037d52;
+  }
+
+  .works-header {
+    text-align: center;
+    margin-top: 30px;
+    animation: fadeIn 0.8s ease;
+  }
+
+  .works-header h1 {
+    font-size: 30px;
+    color: #333;
+  }
+
+  .works-header p {
+    color: #666;
+    font-size: 17px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<div class="works-header">
+  <h1>My Programming Works</h1>
+  <p>Explore the mini-programs I created to learn and practice basic concepts in programming.</p>
+</div>
+
+<div class="works-container">
+  <div class="work-card">
+    <h2>🔠 toUpperCase Converter</h2>
+    <p>This program takes your text and converts it into all <b> uppercase letters </b> </p>
+    <a href="/works/toUpperCase">Try it</a>
+  </div>
+
+  <div class="work-card">
+    <h2>⚪ Area of a Circle</h2>
+    <p>Input a radius, and this program will calculate the area of a circle using the formula <b>A = πr²</b></p>
+    <a href="/works/areaOfCircle">Try it</a>
+  </div>
+
+  <div class="work-card">
+    <h2>🔺 Area of a Triangle</h2>
+    <p>Enter the base and height to find the area of a triangle using <b>A = ½ × base × height</b>. </p>
+    <a href="/works/areaOfTriangle">Try it</a>
+  </div>
+</div>
+{% endblock %}

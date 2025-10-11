@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block title %}Kenneth’s Profile{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f3f3f3;
+        color: #333;
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    .profile-container {
+        background-color: #b8b4b4;
+        padding: 50px;
+        border-radius: 16px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 420px;
+        margin: 100px auto;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    h1 {
+        margin-bottom: 10px;
+        color: #444;
+    }
+
+    p {
+        color: #383535;
+        line-height: 1.6;
+    }
+
+    .info {
+        text-align: left;
+        margin-top: 20px;
+    }
+
+    .info strong {
+        color: #333;
+    }
+
+    .motto {
+        margin-top: 25px;
+        font-style: italic;
+        background-color: #a9a2a2;
+        padding: 10px;
+        border-radius: 8px;
+        color: #555;
+    }
+
+    /* Figure & caption styles */
+    .photo-figure {
+        position: absolute;
+        text-align: center;
+        transform: rotate(var(--tilt));
+        transition: transform 0.3s ease, z-index 0.3s ease;
+    }
+
+    .photo-figure:hover {
+        transform: scale(1.1) rotate(0deg);
+        z-index: 10;
+    }
+
+    .photo-figure img {
+        width: 120px;
+        height: 120px;
+        border-radius: 10px;
+        object-fit: cover;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        display: block;
+        margin: 0 auto;
+        animation: floaty 5s ease-in-out infinite;
+    }
+
+    .photo-figure figcaption {
+        margin-top: 5px;
+        font-size: 14px;
+        color: #333;
+        background-color: rgba(255,255,255,0.7);
+        border-radius: 4px;
+        padding: 2px 5px;
+        display: inline-block;
+    }
+
+    /* Photo positions */
+    .photo1 { top: 110px; left: 160px; --tilt: -10deg; }
+    .photo2 { top: 90px; right: 110px; --tilt: 12deg; }
+    .photo3 { bottom: 20px; left: 110px; --tilt: -6deg; }
+    .photo4 { bottom: 10px; right: 90px; --tilt: 8deg; }
+
+    /* Floaty animation */
+    @keyframes floaty {
+        0%, 100% { transform: translateY(0) rotate(var(--tilt)); }
+        50% { transform: translateY(-6px) rotate(var(--tilt)); }
+    }
+</style>
+
+<!-- Scrapbook photos with captions -->
+<figure class="photo-figure photo1">
+    <img src="{{ url_for('static', filename='professional_pic.jpg') }}" alt="Professional">
+    <figcaption>Professional</figcaption>
+</figure>
+
+<figure class="photo-figure photo2">
+    <img src="{{ url_for('static', filename='basketball.jpg') }}" alt="Playing Basketball">
+    <figcaption>Playing Basketball</figcaption>
+</figure>
+
+<figure class="photo-figure photo3">
+    <img src="{{ url_for('static', filename='favorite_movie.jpg') }}" alt="Favorite Movie">
+    <figcaption>Favorite Movie</figcaption>
+</figure>
+
+<figure class="photo-figure photo4">
+    <img src="{{ url_for('static', filename='favorite_series.jpg') }}" alt="Favorite Series">
+    <figcaption>Favorite Series</figcaption>
+</figure>
+
+<!-- Main profile card -->
+<div class="profile-container">
+    <h1>Hey there, I’m Kenneth Serrano </h1>
+    <p>Welcome to my profile! I’m a Computer Engineering student who loves coding, basketball, and storytelling through movies and series. This site is my digital scrapbook — bits of who I am and what I love.</p>
+
+    <div class="info">
+        <p><strong>Name:</strong> Kenneth Serrano</p>
+        <p><strong>Course:</strong> Bachelor of Science in Computer Engineering</p>
+        <p><strong>Section:</strong> BSCPE 2-2</p>
+        <p><strong>Subject:</strong> Lab Exercise No. 3</p>
+    </div>
+
+    <div class="motto">
+        “Just Trust GOD”
+    </div>
+</div>
+{% endblock %}

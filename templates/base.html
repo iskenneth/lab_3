@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
+  <style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+    }
+
+    /* ========== MAIN NAVBAR ========== */
+    nav.main-nav {
+        background-color: #333;
+        overflow: hidden;
+        padding: 10px 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    nav.main-nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav.main-nav ul li {
+        float: right;
+        margin-left: 10px;
+    }
+
+    nav.main-nav ul li a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        font-size: 17px;
+        padding: 12px 20px;
+        border-radius: 10px 10px 0 0;
+        transition: all 0.4s ease;
+    }
+
+    nav.main-nav ul li a:hover {
+        background-color: #04AA6D;
+        transform: translateY(-5px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav.main-nav ul li a.active {
+        background-color: #04AA6D;
+    }
+
+    /* ========== WORKS SUB-NAVBAR ========== */
+    nav.works-nav {
+        background-color: #444;
+        overflow: hidden;
+        padding: 8px 20px;
+        box-shadow: inset 0 -2px 5px rgba(0,0,0,0.2);
+        text-align: center;
+    }
+
+    nav.works-nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+    }
+
+    nav.works-nav ul li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    nav.works-nav ul li a {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 10px 16px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+
+    nav.works-nav ul li a:hover {
+        background-color: #04AA6D;
+        transform: translateY(-3px);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    nav.works-nav ul li a.active {
+        background-color: #04AA6D;
+    }
+
+    .content {
+        padding: 40px 20px;
+        text-align: center;
+        animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- MAIN NAVIGATION -->
+  <nav class="main-nav">
+    <ul>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/works">Works</a></li>
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/">Home</a></li>
+    </ul>
+  </nav>
+
+  <!-- SUB NAV (WORKS) -->
+  {% block works_nav %}{% endblock %}
+
+  <!-- MAIN PAGE CONTENT -->
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>
