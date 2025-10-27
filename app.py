@@ -34,6 +34,21 @@ def area_of_circle():
             result = "Invalid input"
     return render_template('areaOfCircle.html', result=result)
 
+@app.route('/works/infix_to_postfix', methods=['GET', 'POST'])
+def infix_to_postfix():
+    result = None
+    error = None
+    if request.method == 'POST':
+        infix = request.form.get('infix', '')
+        try: 
+            from infix_to_postfix import infix_to_postfix
+            result = infix_to_postfix(infix)
+        except ValueError as e:
+            error = f"Invalid input: {e}"
+        except Exception as e:
+            error = f"Invalid input: {e}"    
+    return render_template('infix_to_postfix.html', result=result, error=error)
+
 @app.route('/works/areaOfTriangle', methods=['GET', 'POST'])
 def area_of_triangle():
     result = None

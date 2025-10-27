@@ -7,8 +7,8 @@ def operands_position (op):
         return 2
     return 0
 
-def infix_topostfix(expression):
-    stack = LikedList()
+def infix_to_postfix(expression):
+    stack = LinkedList()
     output = []
 
     for char in expression:
@@ -16,7 +16,7 @@ def infix_topostfix(expression):
             output.append(char)
         elif char == '(': 
             stack.insert_at_end (char)
-        elif char ')':
+        elif char == ')':
             while stack.head and stack.tail.data != '(':
                 output.append(stack.remove_at_end())
             stack.remove_at_end()

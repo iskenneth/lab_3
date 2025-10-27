@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}Infix to Postfix{% endblock %}
+
+{% block content %}
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 50px 20px;
+    }
+    .card {
+        background-color: #f0f0f0;
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+        animation: fadeIn 0.8s ease;
+    }
+    .card h1 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+    .card form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #444;
+    }
+    .card form input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+    .btn {
+        background-color: #494d4d;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .btn:hover {
+        background-color: #100f0f;
+        transform: translateY(-2px);
+    }
+    .result-box {
+        background-color: #dadcdb;
+        border: 1px solid #4d5351;
+        border-radius: 10px;
+        padding: 15px;
+        margin-top: 20px;
+        word-wrap: break-word;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="container">
+    <div class="card">
+        <h1>Infix to Postfix Converter</h1>
+
+        <form action="/works/infix_to_postfix" method="post">
+            <label for="infix">Enter Infix Expression:</label>
+            <input type="text" id="infix" name="infix" placeholder="Ex: A + B * C" required>
+            <input type="submit" value="Convert" class="btn">
+        </form>
+
+        {% if result %}
+        <div class="result-box">
+            <strong>Postfix Expression:</strong> {{ result }}
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="result-box" style="background-color:#f8d7da; border-color:#f5c2c7;">
+            <strong>Error:</strong> {{ error }}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
